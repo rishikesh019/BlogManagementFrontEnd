@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="blog-container">
+        <div class="new-blog-button">
+          <button class="btn btn-primary mb-3" (click)="startNewBlog()">
+            New Blog
+          </button>
+        </div>
+        <div class="blog-list">
+          <div *ngFor="let blog of blogs" class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">{{ blog.username }}</h5>
+              <p class="card-text">{{ blog.text }}</p>
+              <p class="text-muted">
+                Created on: {{ blog.dateCreated | date }}
+              </p>
+              <button
+                class="btn btn-warning me-2"
+                (click)="startEditBlog(blog)"
+              >
+                Edit
+              </button>
+              <button class="btn btn-danger" (click)="deleteBlog(blog.id)">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4" style="margin-top: 85px">
+      <app-blog-form
+        *ngIf="isFormVisible"
+        [blog]="selectedBlogForEdit"
+        (formSubmit)="onFormSubmit()"
+        (cancelEdit)="onCancelEdit()"
+      ></app-blog-form>
+    </div>
+  </div>
+</div>

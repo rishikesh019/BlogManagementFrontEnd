@@ -1,0 +1,24 @@
+/* Container for the blog list and button */
+.blog-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent overflow */
+    padding: 10px;
+    }
+    
+    /* Sticky "New Blog" button */
+    .new-blog-button {
+    position: sticky;
+    top: 0;
+    z-index: 10; /* Ensure it stays above scrollable content if overlapping */
+    background-color: white; /* Optional: to ensure it doesn't blend with the background */
+    padding: 10px 0; /* Optional: to add some spacing */
+    }
+    
+    /* Scrollable blog list */
+    .blog-list {
+    flex-grow: 1; /* Take remaining space */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding-right: 10px; /* Add padding to prevent scrollbar overlap */
+    }
